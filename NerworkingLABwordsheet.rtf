@@ -1,0 +1,460 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sl240\slmult1\f0\fs22\lang9 ###\par
+S1-Office1\line ###\par
+Enable\par
+Config T\par
+vlan 10\par
+name Management\par
+exit\par
+vlan 20\par
+name Marketing\par
+exit\par
+vlan 30\par
+name Accounting\par
+exit\par
+vlan 100\par
+name Native\par
+exit\par
+------\par
+enable\par
+config t\par
+interface range fastethernet 0/1-10\par
+switchport mode access\par
+switchport access vlan 10\par
+exit\par
+interface range fastethernet 0/11-20\par
+switchport mode access\par
+switchport access vlan 20\par
+interface range fastethernet 0/21-24\par
+switchport mode access\par
+switchport access vlan 30\par
+exit\par
+---------\par
+enable\par
+config t\par
+interface gig0/2\par
+switchport mode trunk\par
+exit\par
+enable\par
+config t\par
+interface gig0/2\par
+switchport trunk native vlan 100\par
+exit\par
+------------\par
+enable\par
+config t\par
+interface range fastethernet 0/1-10\par
+switchport mode access\par
+switchport nonegotiate\par
+exit\par
+exit\par
+enable\par
+config t\par
+interface range fastethernet 0/11-20\par
+switchport mode access\par
+switchport nonegotiate\par
+exit\par
+exit\par
+enable\par
+config t\par
+interface range fastethernet 0/21-24\par
+switchport mode access\par
+switchport nonegotiate\par
+exit\par
+exit\par
+enable\par
+config t\par
+int g0/1\par
+switchport mode trunk\par
+switchport trunk native vlan 100\par
+end\par
+enable\par
+show interfaces trunk\par
+copy running-config startup-config\par
+enable\par
+config t\par
+int fa0/1\par
+switchport mode access\par
+switchport port-security\par
+switchport port-security violation restrict\par
+switchport port-security mac-address sticky\par
+end\par
+enable\par
+config t\par
+int fa0/11\par
+switchport mode access\par
+switchport port-security\par
+switchport port-security violation restrict\par
+switchport port-security mac-address sticky\par
+end\par
+enable\par
+config t\par
+int fa0/21\par
+switchport mode access\par
+switchport port-security\par
+switchport port-security violation restrict\par
+switchport port-security mac-address sticky\par
+end\par
+enable\par
+config t\par
+int range fa 0/2-10\par
+shutdown\par
+int range fa 0/12-20\par
+shutdown\par
+int range fa 0/22-24\par
+shutdown\par
+end\par
+copy running-config startup-config\par
+show interface status\par
+end\par
+enable\par
+config t\par
+username Admin password ACDC1973\par
+enable password beatles1960\par
+banner motd #Access to this device is for paid employees only!#\par
+service password-encryption\par
+exit\par
+copy running-config startup-config\par
+\par
+\par
+\par
+\par
+###\par
+S2-Office1\par
+###\par
+Enable\par
+Config T\par
+vlan 10\par
+name Management\par
+exit\par
+vlan 20\par
+name Marketing\par
+exit\par
+vlan 30\par
+name Accounting\par
+exit\par
+vlan 100\par
+name Native\par
+exit\par
+-------\par
+enable\par
+config t\par
+interface range fastethernet 0/1-10\par
+switchport mode access\par
+switchport access vlan 10\par
+exit\par
+interface range fastethernet 0/11-20\par
+switchport mode access\par
+switchport access vlan 20\par
+interface range fastethernet 0/21-24\par
+switchport mode access\par
+switchport access vlan 30\par
+exit\par
+-------\par
+enable\par
+config t\par
+interface gig0/1\par
+switchport mode trunk\par
+exit\par
+enable\par
+config t\par
+interface gig0/1\par
+switchport trunk native vlan 100\par
+exit\par
+--------\par
+enable\par
+config t\par
+interface range fastethernet 0/1-10\par
+switchport mode access\par
+switchport nonegotiate\par
+exit\par
+exit\par
+enable\par
+config t\par
+interface range fastethernet 0/11-20\par
+switchport mode access\par
+switchport nonegotiate\par
+exit\par
+exit\par
+enable\par
+config t\par
+interface range fastethernet 0/21-24\par
+switchport mode access\par
+switchport nonegotiate\par
+exit\par
+exit\par
+enable\par
+config t\par
+int fa0/1\par
+switchport mode access\par
+switchport port-security\par
+switchport port-security violation restrict\par
+switchport port-security mac-address sticky\par
+end\par
+enable\par
+config t\par
+int fa0/11\par
+switchport mode access\par
+switchport port-security\par
+switchport port-security violation restrict\par
+switchport port-security mac-address sticky\par
+end\par
+enable\par
+config t\par
+int fa0/21\par
+switchport mode access\par
+switchport port-security\par
+switchport port-security violation restrict\par
+switchport port-security mac-address sticky\par
+end\par
+enable\par
+config t\par
+int range fa 0/2-10\par
+shutdown\par
+int range fa 0/12-20\par
+shutdown\par
+int range fa 0/22-24\par
+shutdown\par
+end\par
+copy running-config startup-config\par
+show interface status\par
+end\par
+enable\par
+config t\par
+username Admin password ACDC1973\par
+enable password beatles1960\par
+banner motd #Access to this device is for paid employees only!#\par
+service password-encryption\par
+exit\par
+copy running-config startup-config\par
+\par
+\par
+####\par
+R3\par
+####\par
+enable\par
+config t\par
+interface gig0/0\par
+ip add 172.16.10.1 255.255.255.224\par
+no shutdown\par
+exit\par
+exit\par
+enable\par
+config t\par
+interface gig0/1\par
+ip add 172.16.10.33 255.255.255.224\par
+no shutdown\par
+exit\par
+exit\par
+enable\par
+config t\par
+int se0/0/0\par
+ip address 172.16.10.98 255.255.255.224\par
+no shut\par
+exit\par
+exit\par
+enable\par
+config t\par
+int se0/0/1\par
+ip address 172.16.10.130 255.255.255.224\par
+no shut\par
+exit\par
+exit\par
+enable\par
+config t\par
+int se0/0/0\par
+no shutdown\par
+exit\par
+int se0/0/01\par
+no shutdown\par
+int gig0/0\par
+no shutdown\par
+int gig0/1\par
+no shutdown\par
+end\par
+enable\par
+config t\par
+router ospf 1\par
+router-id 3.3.3.3\par
+network 172.16.10.96 0.0.0.31 area 0\par
+network 172.16.10.96 0.0.0.31 area 0\par
+network 172.16.10.128 0.0.0.31 area 0\par
+end\par
+enable\par
+config t\par
+router ospf 1\par
+passive-interface gig0/0\par
+passive-interface gig0/1\par
+end\par
+copy running-config startup-config\par
+enable\par
+config t\par
+username Admin password ACDC1973\par
+enable password beatles1960\par
+banner motd #Access to this device is for paid employees only!#\par
+service password-encryption\par
+exit\par
+copy running-config startup-config\par
+\par
+\par
+\par
+####\par
+R1\par
+####\par
+en\par
+config t\par
+hos\par
+hostname R1\par
+int s0/0/1\par
+ip address 172.16.10.65 255.255.255.224\par
+no shut\par
+exit\par
+exit\par
+enable\par
+config t\par
+int se0/0/0\par
+ip address 172.16.10.97 255.255.255.224\par
+no shut\par
+exit\par
+exit\par
+enable\par
+config t\par
+int g0/0.10\par
+encapsulation dot1q 10\par
+ip address 172.16.10.161 255.255.255.224\par
+end\par
+enable\par
+config t\par
+int g0/0.20\par
+encapsulation dot1q 20\par
+ip address 172.16.10.193 255.255.255.224\par
+end\par
+enable\par
+config t\par
+int g0/0.30\par
+encapsulation dot1q 30\par
+ip address 172.16.10.225 255.255.255.224\par
+end\par
+show running-config\par
+end\par
+enable\par
+config t\par
+int se0/0/0\par
+no shutdown\par
+exit\par
+int se0/0/01\par
+no shutdown\par
+enable\par
+config t\par
+router ospf 1\par
+passive-interface gig0/0.10\par
+passive-interface gig0/0.20\par
+passive-interface gig0/0.30\par
+exit\par
+exit\par
+show ip protocols\par
+end\par
+enable\par
+config t\par
+username Admin password ACDC1973\par
+enable password beatles1960\par
+banner motd #Access to this device is for paid employees only!#\par
+service password-encryption\par
+exit\par
+copy running-config startup-config\par
+\par
+\par
+enable\par
+beatles1960\par
+config t\par
+ip domain-name cyber.local\par
+line vty 0 4\par
+login local\par
+transport input ssh\par
+exit\par
+enable \par
+beatles1960\par
+config t\par
+crypto key generate rsa\par
+1024\par
+ip ssh version 2\par
+\par
+\par
+####\par
+R2\par
+####\par
+en\par
+config t\par
+hos\par
+hostname R2\par
+int s0/0/0\par
+ip address 172.16.10.66 255.255.255.224\par
+no shut\par
+exit\par
+exit\par
+enable\par
+config t\par
+int se0/0/1\par
+ip address 172.16.10.129 255.255.255.224\par
+no shut\par
+exit\par
+exit\par
+enable\par
+config t\par
+int se0/0/0\par
+no shutdown\par
+exit\par
+int se0/0/01\par
+no shutdown\par
+enable\par
+config t\par
+router ospf 1\par
+router-id 2.2.2.2\par
+network 172.16.10.64 0.0.0.31 area 0\par
+network 172.16.10.64 0.0.0.31 area 0\par
+network 172.16.10.128 0.0.0.31 area 0\par
+end\par
+enable\par
+config t\par
+username Admin password ACDC1973\par
+enable password beatles1960\par
+banner motd #Access to this device is for paid employees only!#\par
+service password-encryption\par
+exit\par
+copy running-config startup-config\par
+\par
+\par
+348320984093284902\par
+\par
+R3>enable\par
+Password: \par
+R3#config t\par
+Enter configuration commands, one per line.  End with CNTL/Z.\par
+R3(config)#username Admin password ACDC1973\par
+R3(config)#enable password beatles1960\par
+R3(config)#service password-encryption\par
+R3(config)#banner motd #Access to this device is for paid employees only!#\par
+R3(config)#ip domain-name Cyber.local\par
+R3(config)#line vty 0 4\par
+R3(config-line)#login local\par
+R3(config-line)#motd-banner\par
+R3(config-line)#transport input ssh\par
+R3(config-line)#exit\par
+R3(config)#crypto key generate rsa\par
+% You already have RSA keys defined named R3.cyber.local .\par
+% Do you really want to replace them? [yes/no]: y\par
+The name for the keys will be: R3.Cyber.local\par
+Choose the size of the key modulus in the range of 360 to 2048 for your\par
+  General Purpose Keys. Choosing a key modulus greater than 512 may take\par
+  a few minutes.\par
+\par
+How many bits in the modulus [512]: 1024\par
+% Generating 1024 bit RSA keys, keys will be non-exportable...[OK]\par
+\par
+R3(config)#ip ssh version 2\par
+*Mar 1 8:38:16.356: %SSH-5-ENABLED: SSH 2 has been enabled\par
+R3(config)#\par
+\par
+}
+ 
